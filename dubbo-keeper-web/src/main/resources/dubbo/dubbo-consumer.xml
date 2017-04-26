@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:dubbo="http://code.alibabatech.com/schema/dubbo"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+        http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://code.alibabatech.com/schema/dubbo http://code.alibabatech.com/schema/dubbo/dubbo.xsd">
+
+    <!--<dubbo:application name="${dubbo.application.name}" owner="${dubbo.application.owner}"/>-->
+
+    <!--<bean claContextHolderlder"/>-->
+    <!--<bean claDubboKeeperConfigurerurer">-->
+        <!--<property name="locations">-->
+            <!--<value>-->
+                <!--classpatdubbo.bakties-->
+            <!--</value>-->
+        <!--</property>-->
+    <!--</bean>-->
+
+    <dubbo:reference id="registryService"
+                     interface="com.alibaba.dubbo.registry.RegistryService"
+                     version="${dubbo.consumer.version}"
+                     retries="${dubbo.consumer.retries}"
+                     timeout="${dubbo.consumer.timeout}"
+                     check="${dubbo.consumer.check}"/>
+
+    <!--<dubbo:reference id="statisticsStorage"-->
+                     <!--interfacom.dubboclub.dk.storage.api.StatisticsStoragerage"-->
+                     <!--check="false"-->
+                     <!--timeout="15000"/>-->
+
+</beans>

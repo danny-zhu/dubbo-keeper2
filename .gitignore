@@ -1,0 +1,16 @@
+*.iml
+*/*.iml
+*/*/*.iml
+*.ipr
+*.iws
+/out/
+.idea_modules/
+*.class
+*.log
+.DS_Store
+/.idea
+target
+/classes
+
+#前端构建
+node_modules/

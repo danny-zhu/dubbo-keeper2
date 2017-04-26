@@ -1,0 +1,68 @@
+# peeper config
+peeper:
+  zookeepers: localhost:2181
+  zookeeper:
+    session:
+      timeout: 60000
+
+# logger
+monitor:
+  log:
+    home: ${HOME}/${application.name}/log
+  collect:
+    interval: 6000
+  write:
+    interval: 60
+
+spring:
+  application:
+    name: dubbo-keeper2
+  # web view
+  mvc:
+    view:
+      prefix: /WEB-INF/jsp/
+      suffix: .jsp
+  # Logback
+  log:
+    file:
+      path: ${HOME}/logs/${spring.application.name}/${spring.profiles.active} # 日志文件路径
+      maxKeep: 5  # 最大保留的文件个数
+
+# dubbo conf
+dubbo:
+  application:
+    name: dubbo-keeper2
+    owner: zhenmo
+    organization: zhenmo
+  registry:
+    address: zookeeper://localhost:2181
+    file: ${HOME}/.dubbo/dubbo-registry-Order-0.cache
+  protocol:
+    name: dubbo
+    port: 20880
+  provider:
+    version: 1.0_local
+    timeout: 5000
+    transporter: netty4
+    versioin: test
+  consumer:
+    version: 1.0_local
+    timeout: 15000
+    retries: 0
+    check: false
+  monitor:
+    mysql:
+      url: jdbc:mysql://localhost:3306/dubbo_keeper
+      username: dubbo
+      password: 123456
+      pool:
+        max: 10
+        min: 10
+  reference:
+    client: netty4
+
+
+# springboot actuator Security Config
+management:
+  security:
+    enabled: false

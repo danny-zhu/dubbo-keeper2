@@ -1,0 +1,22 @@
+server:
+  port: 8080
+  contextPath: /
+
+application:
+  name: dubbo-keeper2
+
+spring:
+  profiles:
+    active: local      # 本地开发环境
+#    active: test      # 测试环境
+
+# health monitor
+info:
+  app:
+    name: "@project.name@"
+    description: "@project.description@"
+    version: "@project.version@"
+    springBootVersion: "@spring.boot.version@"
+
+logging:
+  config: classpath:logback-dubbo-keeper2.xml
